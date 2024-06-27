@@ -10,7 +10,7 @@ public class Main {
         String quit = "";
         Scanner scan = new Scanner(System.in);
         while (!quit.equals(QUIT_COMM)) {
-            System.out.println("Я загадала число в диапазоне от "
+            System.out.println("Загадано число в диапазоне от "
                     + LOWEST_VALUE + " до " + (HIGHEST_VALUE - 1) +
                     "\nПопробуйте угадать.\nВаша догадка:");
             int sought = LOWEST_VALUE + (int) (Math.random() * (HIGHEST_VALUE - LOWEST_VALUE));
