@@ -10,6 +10,7 @@ public class Main {
         String quit = "";
         Scanner scan = new Scanner(System.in);
         while (!quit.equals(QUIT_COMM)) {
+
             System.out.println("Я загадала число от "
                     + LOWEST_VALUE + " до " + (HIGHEST_VALUE - 1) +
                     "\nПопробуйте угадать.\nВаша догадка:");
