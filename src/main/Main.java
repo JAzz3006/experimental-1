@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -8,19 +9,28 @@ public class Main {
 
     public static void main(String[] args) {
         String quit = "";
-        Scanner scan = new Scanner(System.in);
+        int guess = HIGHEST_VALUE + 1;
+        //Scanner scan = new Scanner(System.in);
         while (!quit.equals(QUIT_COMM)) {
 
             System.out.println("Я загадала число от "
                     + LOWEST_VALUE + " до " + (HIGHEST_VALUE - 1) +
                     "\nПопробуйте угадать.\nВаша догадка:");
             int sought = LOWEST_VALUE + (int) (Math.random() * (HIGHEST_VALUE - LOWEST_VALUE));
-            int guess = scan.nextInt();
-            while (guess != sought) {
-                System.out.println("Неправильно! Следующая попытка:");
-                guess = scan.nextInt();
-            }
+
+                while (guess != sought) {
+                    try {
+                        guess = new Scanner(System.in).nextInt();
+                    } catch (InputMismatchException e) {
+                        System.out.println("Что-то? Не поняла вас. Введите, пожалуйста, целое число в диапазоне от "
+                                + LOWEST_VALUE + " до " + (HIGHEST_VALUE - 1));
+
+                    }
+                    System.out.println("Неправильно! Следующая попытка:");
+                }
+
             System.out.println("Вы угадали! Сыграем еще? '" + QUIT_COMM + "' для выхода");
+
             quit = new Scanner(System.in).nextLine();
         }
     }
